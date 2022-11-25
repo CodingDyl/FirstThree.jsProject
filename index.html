@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/dylIcon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>First Three.js App</title>
+    <title>Dylan Petzer : Software Engineer</title>
   </head>
   <body>
     <canvas id="bg"></canvas>
@@ -47,7 +47,7 @@
             <h2>Luno Store</h2>
             <p>Created a small e-commerce store using React. Made for personal use.</p>
             <div class="pro-btns">
-              <a href="" class="btn github" target="_blank">See Github Repo</a>
+              <a href="https://github.com/CodingDyl/LunoTech-Site" class="btn github" target="_blank">See Github Repo</a>
               <a href="https://luno-tech-site.vercel.app" class="btn live" target="_blank">See Live Demo</a>
             </div>
           </div>
@@ -57,20 +57,29 @@
             <h2>Cash Crop App</h2>
             <p>Created an app for farmers to use to sell to the customer and restaurants.</p>
             <div class="pro-btns">
-              <a href="" class="btn github" target="_blank">See Github Repo</a>
+              <a href="https://github.com/CodingDyl/CashCropVersionn1" class="btn github" target="_blank">See Github Repo</a>
               <a href="" class="btn live" target="_blank">See Live Demo</a>
             </div>
           </div>
         </div>
 
-        <p>Want to see more of my repo's ? <a href="" class="github">My Github</a></p>
+        <p>Want to see more of my repo's ? <a href="https://github.com/CodingDyl" class="github" target="_blank">My Github</a></p>
         <a href="./CV copy.pdf" download="Dylan CV" class="btn"><i class="fa fa-download"></i> Download My CV</a>
 
-        <h2>🏆 Accomplishments</h2>
+        <h2>🏆 Contact Me</h2>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <form onsubmit="sendEmail(); reset(); return false">
+          <div class="name-sec">
+            <input id="fname" type="text" placeholder="Enter name" class="name">
+            <input id="sname" type="text" placeholder="Enter surname" class="name">
+          </div>
+          <div class="name-sec">
+            <input id="phone" type="number" placeholder="Enter phone no." class="name">
+            <input id="email" type="email" placeholder="Enter your email" class="name">
+          </div>
+          <textarea id="message" rows="4" placeholder="Send me a message!" class="message"></textarea>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
 
       </section>
 
@@ -104,5 +113,22 @@
     </main>
 
     <script type="module" src="./main.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+      function sendEmail() {
+        Email.send({
+          Host: "stmp.gmail.com",
+          Username: "2610dylan@gmail.com",
+          Password: "2101taryn",
+          To: "2610dylan@gmail.com",
+          From: document.getElementById("email").value,
+          Subject: document.getElementById("fname").value + " is Trying to get ahold of you!",
+          Body: "Name: " + document.getElementById("fname").value + "<br> Phone: " + document.getElementById("phone").value + "<br> Email: " + document.getElementById("email").value + "<br> Message: " + document.getElementById("message").value,
+        }).then(
+          message => alert("Message sent successfully!")
+        );
+      }
+    </script>
   </body>
 </html>
